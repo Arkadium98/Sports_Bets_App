@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football Winner</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- BOOTSWATCH -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- ANIMATE CSS -->
+    <link rel="stylesheet" href="css/stylecon.css" />
+    <!--../css/stylecon.css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+  </head>
+
+  <body class="bg-light" onLoad="myOnLoad()">
+    <!-------------NAVBAR------------->
+    <nav class="navbar navbar-expand-lg navbar-dark" id="menu_navbar">
+      <a class="navbar-brand"
+        ><img
+          src="/img/logo.png"
+          class="img-fluid"
+          width="100px"
+          height="100px"
+          alt=""
+      /></a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto" id="menu">
+          <li class="nav-item text-center">
+            <a class="nav-link" href="../index.html">
+              <h4>Login</h4>
+              <span class="sr-only">(current)</span></a
+            >
+          </li>
+
+          <li class="nav-item active text-center">
+            <a class="nav-link" href="#"><h4>Inicio</h4></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!---------------------------------------------------------------->
+    <!-- ADD TASK -->
+    <div class="container-fluid" id="banner">
+      <div class="row" id="contentview">
+        <!------------------------->
+        <div id="tabla-form" class="col-lg-8">
+          <!----<h3>Tabla</h3>-->
+          <table id="footballtable">
+            <tr id="parte-superior">
+              <th>Home</th>
+              <th>Away</th>
+              <th>Advice</th>
+              <th>Score Home</th>
+              <th>Score Away</th>
+              <th>Total Goals</th>
+              <th>Exact Score</th>
+              <th>Exact Goals Number</th>
+              <th>Match Winner</th>
+            </tr>
+          </table>
+        </div>
+        <!---------------------->
+
+        <!------------------------->
+        <div id="infogeneral" class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="h4 text-secondary">Agregar apuesta</h1>
+
+              <form id="task-form">
+                <div class="form-group">
+                  <input
+                    type="number"
+                    id="amount"
+                    class="form-control"
+                    placeholder="Monto"
+                    autofocus
+                  />
+                </div>
+
+                <div class="form-group">
+                  <select
+                    class="form-control"
+                    id="category_match"
+                    name="category_match"
+                  >
+                    <option>Seleccione un partido...</option>
+                    <!----<option value="Exact_Score_">Exact Score</option>
+                    <option value="Exact_Goals_Number_"
+                      >Exact Goals Number</option
+                    >
+                    <option value="Match_Winner_">Match Winner</option>-->
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <select class="form-control" id="category_bet">
+                    <option>Seleccione el tipo de apuesta...</option>
+                    <option value="Exact_Score_">Exact Score</option>
+                    <option value="Exact_Goals_Number_"
+                      >Exact Goals Number</option
+                    >
+                    <option value="Match_Winner_">Match Winner</option>
+                  </select>
+                </div>
+
+                <button class="btn btn-primary" id="btn-task-form">
+                  Crear
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- Tasks List -->
+          <h3 id="random-movie"></h3>
+          <h3>Ganancia Total <span id="totalexpenses"></span></h3>
+          <div id="tasks-container"></div>
+          <!---------------------->
+        </div>
+      </div>
+    </div>
+    <!------------------FOOTER------------------------------------>
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col text-left">
+            <p><i class="far fa-copyright"></i>2020 Carlos Arias</p>
+          </div>
+          <div class="col text-right">
+            <a
+              class="p-3 mb-2 bg-transparent text-white"
+              href="mailto:carlosac2198@gmail.com"
+              >carlosac2198@gmail.com</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!------------------------------------------------------->
+    <!------------------------------------------------------->
+    <!-- FIREBASE -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDuPIR-ugbZmynViFn4K4RzzaemDNdrWFM",
+        authDomain: "bda-football.firebaseapp.com",
+        databaseURL: "https://bda-football-default-rtdb.firebaseio.com",
+        projectId: "bda-football",
+        storageBucket: "bda-football.appspot.com",
+        messagingSenderId: "477822741693",
+        appId: "1:477822741693:web:32b3b23e4d4e79b3c61bd4"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      //---------------------------- Tabla --------------------
+      database = firebase.database();
+
+      //var array=new Array();
+      var ref = database.ref("footballbd");
+      ref.on("value", gotData, errData);
+      function gotData(data) {
+        //console.log(data.val());
+        var football = data.val();
+        var keys = Object.keys(football);
+        //console.log(keys);
+        var tabla = document.getElementById("footballtable");
+        for (var i = 0; i < keys.length; i++) {
+          var k = keys[i];
+          var n_home = football[k].name_home;
+          var n_away = football[k].name_away;
+          var n_advice = football[k].advice;
+          var n_hgp = football[k].home_goals_predicted;
+          var n_agp = football[k].away_goals_predicted;
+          var n_suma = parseInt(n_hgp) + parseInt(n_agp);
+
+          var obj = {
+            n_Exact_Score_0_0: football[k].Exact_Score_0_0,
+            n_Exact_Score_0_1: football[k].Exact_Score_0_1,
+            n_Exact_Score_0_2: football[k].Exact_Score_0_2,
+            n_Exact_Score_0_3: football[k].Exact_Score_0_3,
+            n_Exact_Score_0_4: football[k].Exact_Score_0_4,
+            n_Exact_Score_0_5: football[k].Exact_Score_0_5,
+            n_Exact_Score_0_6: football[k].Exact_Score_0_6,
+            n_Exact_Score_0_7: football[k].Exact_Score_0_7,
+            n_Exact_Score_0_8: football[k].Exact_Score_0_8,
+            n_Exact_Score_0_9: football[k].Exact_Score_0_9,
+            n_Exact_Score_1_0: football[k].Exact_Score_1_0,
+            n_Exact_Score_1_1: football[k].Exact_Score_1_1,
+            n_Exact_Score_1_2: football[k].Exact_Score_1_2,
+            n_Exact_Score_1_3: football[k].Exact_Score_1_3,
+            n_Exact_Score_1_4: football[k].Exact_Score_1_4,
+            n_Exact_Score_1_5: football[k].Exact_Score_1_5,
+            n_Exact_Score_1_6: football[k].Exact_Score_1_6,
+            n_Exact_Score_1_7: football[k].Exact_Score_1_7,
+            n_Exact_Score_1_8: football[k].Exact_Score_1_8,
+            n_Exact_Score_2_0: football[k].Exact_Score_2_0,
+            n_Exact_Score_2_1: football[k].Exact_Score_2_1,
+            n_Exact_Score_2_2: football[k].Exact_Score_2_2,
+            n_Exact_Score_2_3: football[k].Exact_Score_2_3,
+            n_Exact_Score_2_4: football[k].Exact_Score_2_4,
+            n_Exact_Score_2_5: football[k].Exact_Score_2_5,
+            n_Exact_Score_2_6: football[k].Exact_Score_2_6,
+            n_Exact_Score_2_7: football[k].Exact_Score_2_7,
+            n_Exact_Score_3_0: football[k].Exact_Score_3_0,
+            n_Exact_Score_3_1: football[k].Exact_Score_3_1,
+            n_Exact_Score_3_2: football[k].Exact_Score_3_2,
+            n_Exact_Score_3_3: football[k].Exact_Score_3_3,
+            n_Exact_Score_3_4: football[k].Exact_Score_3_4,
+            n_Exact_Score_3_5: football[k].Exact_Score_3_5,
+            n_Exact_Score_3_6: football[k].Exact_Score_3_6,
+            n_Exact_Score_4_0: football[k].Exact_Score_4_0,
+            n_Exact_Score_4_1: football[k].Exact_Score_4_1,
+            n_Exact_Score_4_2: football[k].Exact_Score_4_2,
+            n_Exact_Score_4_3: football[k].Exact_Score_4_3,
+            n_Exact_Score_4_4: football[k].Exact_Score_4_4,
+            n_Exact_Score_4_5: football[k].Exact_Score_4_5,
+            n_Exact_Score_5_0: football[k].Exact_Score_5_0,
+            n_Exact_Score_5_1: football[k].Exact_Score_5_1,
+            n_Exact_Score_5_2: football[k].Exact_Score_5_2,
+            n_Exact_Score_5_3: football[k].Exact_Score_5_3,
+            n_Exact_Score_5_4: football[k].Exact_Score_5_4,
+            n_Exact_Score_6_0: football[k].Exact_Score_6_0,
+            n_Exact_Score_6_1: football[k].Exact_Score_6_1,
+            n_Exact_Score_6_2: football[k].Exact_Score_6_2,
+            n_Exact_Score_6_3: football[k].Exact_Score_6_3,
+            n_Exact_Score_7_0: football[k].Exact_Score_7_0,
+            n_Exact_Score_7_1: football[k].Exact_Score_7_1,
+            n_Exact_Score_7_2: football[k].Exact_Score_7_2,
+            n_Exact_Score_8_0: football[k].Exact_Score_8_0
+          };
+          var busc_ex_score = "n_Exact_Score_" + n_hgp + "_" + n_agp;
+          //console.log(busc_ex_score);
+          var temp_score = " ";
+          for (key in obj) {
+            if (key == busc_ex_score) {
+              //console.log(key + ': ' + obj[key]);
+              temp_score = obj[key];
+            }
+          }
+          var n_exascore = temp_score;
+
+          var obj2 = {
+            n_Exact_Goals_Number_0: football[k].Exact_Goals_Number_0,
+            n_Exact_Goals_Number_1: football[k].Exact_Goals_Number_1,
+            n_Exact_Goals_Number_2: football[k].Exact_Goals_Number_2,
+            n_Exact_Goals_Number_3: football[k].Exact_Goals_Number_3,
+            n_Exact_Goals_Number_4: football[k].Exact_Goals_Number_4,
+            n_Exact_Goals_Number_5: football[k].Exact_Goals_Number_5,
+            n_Exact_Goals_Number_6: football[k].Exact_Goals_Number_6
+          };
+          var busc_ex_goal_num = "n_Exact_Goals_Number_" + n_suma;
+
+          var temp_goal_num = " ";
+          for (key2 in obj2) {
+            if (key2 == busc_ex_goal_num) {
+              //console.log(key2 + ': ' + obj2[key2]);
+              temp_goal_num = obj2[key2];
+            } else if (n_suma >= 7) {
+              temp_goal_num = football[k].Exact_Goals_Number_more_7;
+            }
+          }
+          var n_exa_goal_num = temp_goal_num;
+
+          //Match_Winner
+          var n_match_winner = " ";
+          if (parseInt(n_hgp) == parseInt(n_agp)) {
+            n_match_winner = football[k].Match_Winner_Draw;
+            //n_match_winner = "Draw";
+          } else if (parseInt(n_hgp) > parseInt(n_agp)) {
+            n_match_winner = football[k].Match_Winner_Home;
+            //n_match_winner = "Home";
+          } else {
+            n_match_winner = football[k].Match_Winner_Away;
+            //n_match_winner = "Away";
+          }
+
+          //console.log(n_away,n_home);
+          var fila = document.createElement("tr");
+          //fila.innerHTML = n_home + ' vs '+ n_away;
+          fila.innerHTML = `
+      
+              <th>${n_home}</th>
+              <th>${n_away}</th>
+              <th>${n_advice}</th>
+              <th>${n_hgp}</th>
+              <th>${n_agp}</th>
+              <th>${n_suma}</th>
+              <th>${n_exascore}</th>
+              <th>${n_exa_goal_num}</th>
+              <th>${n_match_winner}</th>
+       
+      `;
+          tabla.appendChild(fila);
+          //li.parent('footballist');
+          //var task_cat=document.getElementById('task-category');
+          //var opc_main = document.createElement('<option value="n_home">n_home</option>');
+          //task_cat.appendChild(opc_main);
+
+          //array.push(n_home + " vs " + n_away);
+        }
+      }
+      function errData(err) {
+        console.log("Error!");
+        console.log(err);
+      }
+      //console.log(array);
+
+      var array = [
+        "Montpellier W vs Soyaux W",
+        "Bordeaux W vs Lyon W",
+        "Dijon W vs Guingamp W",
+        "Stade de Reims W vs Paris Saint Germain W",
+        "Poprad vs FK Košice",
+        "Veres Rivne vs Alians Lypova Dolyna",
+        "Prykarpattia vs Metalist 1925 Kharkiv",
+        "SV Elversberg vs Balingen",
+        "Feirense vs Penafiel",
+        "Levante vs Cadiz",
+        "Newcastle Jets vs Brisbane Roar",
+        "Wellington Phoenix vs Western United",
+        "Wazito FC vs Tusker",
+        "Maitland vs Broadmeadow Magic",
+        "Melbourne Knights vs Eastern Lions",
+        "Green Gully vs Dandenong Thunder",
+        "Dandenong City vs Port Melbourne",
+        "Oakleigh Cannons vs Hume City",
+        "Lausanne vs BSC Young Boys",
+        "FC Luzern vs FC Lugano",
+        "Servette FC vs FC ST. Gallen",
+        "FC Sion vs FC Basel 1893",
+        "FC Zurich vs FC Vaduz",
+        "Jeddah Club vs Al-Adalah",
+        "Sassuolo U19 vs Ascoli U19",
+        "Fiorentina U19 vs SPAL U19",
+        "Suwon City FC vs Incheon United",
+        "PK-35 vs EIF",
+        "Centenary Stormers vs Acacia Ridge",
+        "Dundalk vs Shamrock Rovers",
+        "St Patrick's Athl. vs Bohemians",
+        "Finn Harps vs Drogheda United",
+        "Sligo Rovers vs Longford Town",
+        "Guairena FC vs Club Guarani",
+        "Afturelding vs IBV Vestmannaeyjar",
+        "Fram Reykjavik vs Thor Akureyri",
+        "Throttur Reykjavik vs Selfoss",
+        "Vikingur Olafsiik vs Kórdrengir",
+        "Grindavik vs Fjolnir",
+        "IR Reykjavik vs Thróttur Vogar",
+        "Njardvik vs KV",
+        "Reynir vs Kári",
+        "Haukar vs Völsungur",
+        "KA Akureyri vs Vikingur Reykjavik",
+        "Valur Reykjavik vs Leiknir R.",
+        "HK Kopavogur vs IA Akranes",
+        "Breidablik vs Stjarnan",
+        "Fylkir vs Keflavik",
+        "Carlos Stein vs Alianza Universidad",
+        "Slavia Mozyr vs FC Gomel",
+        "Shakhter Soligorsk vs Dinamo Minsk",
+        "NSÍ II vs HB II",
+        "Gimhae City vs Busan Transportation",
+        "Quilmes vs Atletico Mitre",
+        "Victoriano Arenas vs Midland",
+        "Claypole vs El Porvenir",
+        "Leandro N. Alem vs Berazategui",
+        "Shelbourne vs UCD",
+        "Cork City vs Galway United",
+        "Athlone Town vs Cobh Ramblers",
+        "Cabinteely vs Treaty United",
+        "Wexford vs Bray Wanderers",
+        "SKN ST. Polten vs TSV Hartberg",
+        "Ried vs Austria Vienna",
+        "Admira Wacker vs SCR Altach",
+        "Colorado Springs vs New Mexico United",
+        "FC Helsingor vs Silkeborg",
+        "FC Fredericia vs Viborg",
+        "HB Koge vs Esbjerg",
+        "Campbelltown City vs MetroStars",
+        "Heerenveen W vs PEC Zwolle W",
+        "VV Alkmaar W vs Excelsior W",
+        "Al Salt vs Muharraq",
+        "Al Seeb vs Al Faisaly",
+        "IFK Malmö vs Lund",
+        "Saipa vs Foolad FC",
+        "Real Monarchs vs Austin Bold",
+        "Atlético Pantoja vs Vega Real",
+        "Trujillanos FC vs Zulia FC"
+      ];
+
+      //console.log("---Array---");
+      /*for (var i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+  //console.log(arr)
+}*/
+      //console.log(array);
+      //-------------------------- Fin Tabla ------------------------------------
+      //--------------------------Select ---------------------------------------
+      //var array2 = ["Exact Score", "Ex", "Galicia", "Andalucia", "Extremadura"];
+      function myOnLoad() {
+        cargar_match();
+      }
+      // funcion para Cargar Provincias al campo <select>
+      function cargar_match() {
+        // Ordena el Array Alfabeticamente, es muy facil ;)):
+        array.sort();
+
+        addOptions("category_match", array);
+      }
+
+      // Rutina para agregar opciones a un <select>
+      function addOptions(domElement, array) {
+        console.log("Func Options");
+
+        var select = document.getElementsByName(domElement)[0];
+        for (var j = 0; j < array.length; j++) {
+          console.log("For");
+          var option = document.createElement("option");
+          option.text = array[j];
+          //console.log(array[j]);
+          select.add(option);
+        }
+      }
+      //---------------------------------Calculos------------------------------------
+
+      /*
+function operacion(arg1, arg2) {
+  return Number(arg1) *  Number(arg2);
+}
+
+document.getElementById("calcular").onclick = function () {
+  var monto = document.getElementById("monto").value;
+  //console.log(monto);
+  var partido = document.getElementById("slct_match").value;
+  //console.log(partido);
+
+
+  var tipo_apuesta = document.getElementById("slct_bet").value;
+  //console.log(tipo_apuesta);
+  //var b = document.getElementById("B").value;
+  //var resultado = operacion(a, b);
+  var resultado = monto;
+  document.getElementById("resultado").innerHTML = "Resultado: " + resultado;
+};
+//console.log(partido);*/
+      //-------------------------------------------------------------------------
+    </script>
+
+    <!---------->
+    <!-- CUSTOM CODE -->
+    <script src="scripts/main.js"></script>
+    <!--../scripts/main.js-->
+  </body>
+</html>
